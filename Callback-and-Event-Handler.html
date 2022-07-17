@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+      Execution sequence of function, the callback, and event handler 
+    </head>
+    <body>
+    <button onclick="waitfunction(call)">START</button>
+       <script>
+      
+         function waitfunction(callback) {
+            var a = 5000 + new Date().getTime();
+            while (new Date() < a){}
+            console.log('waitfunction() context will be popped after this line');
+            callback();
+         } 
+
+        function clickHandler() {
+            console.log('click event handler...');   
+        }
+
+        document.addEventListener('click', clickHandler);
+
+        //waitfunction(); //a new context for this function is created and placed on the execution stack
+        
+        function call(){
+          console.log('global context will be popped after this line');
+        }
+
+         // Run the code
+         // Click "START" button
+         // Click anywhere in html page
+         
+         // output (before (5000 ms):
+         // nothing
+         
+         // output (after 5000 ms):
+         // waitfunction() context will be popped after this line
+         // global context will be popped after this line    (this is the callback)
+         // click event handler...     (this is caused by first click, when we hit START button)
+         // click event handler...     (this is caused by second click, when we hit any point within the html page)
+         
+      </script>
+    </body>
+</html>
