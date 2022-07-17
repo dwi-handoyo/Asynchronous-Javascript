@@ -1,5 +1,7 @@
 # Asynchronous Javascript
 
+Basically Javascipt is synchronous, single theraded language. Asynchronous here just to simplify the term on how to manage the execution sequence of coding lines. 
+
 Asynchronous means not occuring in same time. This night be happened in cases below:
 
 - Fetch data from server
@@ -7,6 +9,8 @@ Asynchronous means not occuring in same time. This night be happened in cases be
 - To execute something after an event
 
 ### 1. Callback
+
+A callback is a function passed as an argument to another function.
 
         function superComplexProcess(callback){
           console.log("two");
