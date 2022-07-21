@@ -1,0 +1,42 @@
+<html>
+<head>Tes Asynchronous JS di Webpage</head>
+<body>  
+<div id="satu"></div>
+<div id="dua"></div>
+<div id="tiga"></div>
+<div id="empat"></div>
+
+<script>
+  
+function openDisplay(){
+ document.getElementById("satu").innerHTML = '1. Open display.';
+}
+
+function hideDisplay(){
+ document.getElementById("empat").innerHTML = '4. Close display.';
+}
+
+function loadingDisplay(callback){
+  document.getElementById("dua").innerHTML = '2. Start loading.';
+  setTimeout(() => {
+   document.getElementById("tiga").innerHTML = '3. Finish loading.';
+   callback();
+  }, 2000);
+  }
+
+openDisplay();
+loadingDisplay(hideDisplay);
+  
+// Output in the webpage:
+// Immediately logged:
+//  1. Open display.
+//  2. Start loading.
+// Logged after 2000 ms:
+//  3. Finish loading. 
+//  4. Close display.
+  
+</script>
+</body>
+</html>  
+
+
