@@ -1,5 +1,5 @@
 
-//Tanpa Callback
+// 1. Without Callback
 
 const posts = [
   {title: 'Post One', body: 'This is post one.'},
@@ -28,13 +28,14 @@ createPost({title: 'Post Three', body: 'This is post three.'});
 
 getPosts();
 
-//Outputnya: 
-Post One
-Post Two
+// Outputnya: 
+// Logged after 1000 ms:
+// Post One
+// Post Two
 
 //Post Three tidak muncul karena ketika Post Three dibuat melalui fungsi createPost (2000 ms), proses menulis/menampilkan posts sudah terlebih dahulu terjadi (1000ms). Untuk menangani ini digunakan callback seperti di bawah ini.
 
-//Without Callback
+// 2. With Callback
 
 const posts = [
   {title: 'Post One', body: 'This is post one.'},
@@ -62,9 +63,15 @@ createPost({title: 'Post Three', body: 'This is post three.'}, getPosts);
 
 getPosts();
 
-//Outputnya: 
-Post One
-Post Two
-Post Three
-//Post Three muncul karena adanya callback
+// Outputnya:
+// * Logged after 1000 ms:
+// Post One
+// Post Two
+// * Logged after 2000 ms:
+// Post One
+// Post Two
+// Post Three
+
+// Post Three muncul karena adanya callback
+
 
