@@ -35,9 +35,16 @@ createPost({title: "Part Three", body: "This is part three"})
 .catch(err => console.log(err));
 
 // output: (if error = false)
+// after 1000 ms:
+// Part One
+// Part Two
+
+// after 2000 ms
 // Part One
 // Part Two
 // Part Three
 
 //output: (if error = true)
 // “Something went wrong”
+
+
