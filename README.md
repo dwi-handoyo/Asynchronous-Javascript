@@ -28,4 +28,18 @@ A callback is a function passed as an argument to another function.
         
 ### 2. Promise
 
+let done =true; // Please also try for done = false
+
+const prom = new Promise((resolve, reject) => {
+ if (done) {
+   resolve('Promise is fulfilled!');
+ } else {
+   reject('Promise is not fulfilled!');
+ }
+});
+
+prom
+  .then(response => console.log('OK! : ' + response))
+  .catch(response => console.log('NOT OK! : ' + response));
+
 ### 3. Async-Await
