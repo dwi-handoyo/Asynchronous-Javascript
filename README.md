@@ -1,6 +1,6 @@
 # Asynchronous Javascript
 
-Basically Javascipt is synchronous, single theraded language. Asynchronous here just to simplify the term on how to manage the execution sequence of coding lines. 
+Basically Javascipt is synchronous, single threaded language. Asynchronous here just to simplify the term on how to manage the execution sequence of coding lines. 
 
 Asynchronous means not occuring in same time. This night be happened in cases below:
 
@@ -43,3 +43,32 @@ A callback is a function passed as an argument to another function.
           .catch(response => console.log('NOT OK! : ' + response));
 
 ### 3. Async-Await
+About asynchronous functions:
+a. Functions that run asynchronously
+b. Returns (implicitly) a promise
+c. The way to write it is the same as a synchronous function (ordinary function)
+
+        function tryPromise() {
+          return new Promise((resolve, reject) => {
+           const time = 3000;
+           if (time < 5000) {
+             setTimeout(() => {
+               resolve('completed')
+             }, time);
+           } else {
+             reject('failed, time is too long');
+           }
+          });
+        }
+        
+        async function tryAsync() {
+           try {
+            const trial = await tryPromise();
+            console.log(trial);
+           } catch (err) {
+            console.log(err);
+           }
+        }
+        
+        tryAsync();
+        
